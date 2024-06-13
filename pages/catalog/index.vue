@@ -22,7 +22,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full lg:w-3/4">
                 <div class="flex flex-col gap-6 bg-white/5 rounded-xl p-4 border border-white/15 backdrop-blur-3xl group" v-for="product in products">
                     <div class="overflow-hidden rounded-xl">                    
-                        <img src="/images/products/1.jpg" alt="" class="transition-all duration-500 group-hover:scale-125">
+                        <img :src="product.image" alt="" class="transition-all duration-500 group-hover:scale-125 w-full aspect-video object-cover">
                     </div>
                     <p class="text-2xl font-Comfortaa">{{ product.title }}</p>
                     <div class="flex flex-col gap-2 mt-auto">

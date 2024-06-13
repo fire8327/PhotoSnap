@@ -5,7 +5,9 @@
             <div class="flex flex-col gap-8">
                 <div class="flex flex-col gap-4 rounded-xl p-4 border border-white/15 bg-white/5 backdrop-blur-3xl" v-for="cart in carts">
                     <p class="text-2xl tracking-widest font-semibold font-Comfortaa">{{ cart.products.title }}</p>
-                    <img src="/images/products/1.jpg" alt="" class="w-full rounded-xl">
+                    <NuxtLink :to="`/catalog/product-${cart.products.id}`" class="rounded-xl overflow-hidden group">
+                        <img :src="cart.products.image" alt="" class="transition-all duration-500 group-hover:scale-125 w-full aspect-video object-cover">
+                    </NuxtLink>
                     <div class="text-4xl tracking-widest font-semibold font-Comfortaa">{{ cart.products.price.toLocaleString() }} ₽</div>
                     <div class="flex items-center gap-2 md:w-1/2">
                         <div class="flex items-center justify-center gap-4 h-full px-4 rounded-xl border white w-1/2">

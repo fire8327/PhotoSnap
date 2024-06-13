@@ -19,7 +19,7 @@
             <div class="flex flex-col gap-4 rounded-xl p-4 border border-white/15 bg-white/5 backdrop-blur-3xl" v-for="cart in carts">
                 <p>Id заказа: {{ cart.id }}</p>
                 <p class="tracking-widest font-semibold font-Comfortaa">{{ cart.products.title }}</p>
-                <img src="/images/products/1.jpg" alt="" class="w-full rounded-xl">
+                <img :src="cart.products.image" alt="" class="w-full rounded-xl aspect-video object-cover">
                 <div class="text-3xl tracking-widest font-semibold font-Comfortaa">{{ cart.products.price.toLocaleString() }} ₽</div>
             </div>
         </div>

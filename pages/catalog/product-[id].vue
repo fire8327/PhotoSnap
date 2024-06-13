@@ -1,6 +1,6 @@
 <template>
     <div class="flex max-lg:flex-col gap-6">
-        <img src="/images/products/1.jpg" alt="" class="w-full lg:w-1/2 rounded-xl object-cover aspect-video h-fit">
+        <img :src="products[0].image" alt="" class="w-full lg:w-1/2 rounded-xl object-cover aspect-video h-fit">
         <div class="flex flex-col gap-6 w-full lg:w-1/2 p-4 rounded-xl bg-white/5 border border-white/15 backdrop-blur-3xl">
             <p class="text-2xl font-Comfortaa font-semibold tracking-widest">{{ products[0].title }}</p>
             <div class="flex flex-col gap-8 md:gap-2">
