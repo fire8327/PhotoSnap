@@ -19,7 +19,9 @@
             <div class="flex flex-col gap-4 rounded-xl p-4 border border-white/15 bg-white/5 backdrop-blur-3xl" v-for="cart in carts">
                 <p>Id заказа: {{ cart.id }}</p>
                 <p class="tracking-widest font-semibold font-Comfortaa">{{ cart.products.title }}</p>
-                <img :src="cart.products.image" alt="" class="w-full rounded-xl aspect-video object-cover">
+                <NuxtLink :to="`/catalog/product-${cart.products.id}`" class="rounded-xl overflow-hidden group">
+                    <img :src="cart.products.image" alt="" class="transition-all duration-500 group-hover:scale-125 w-full aspect-video object-cover">
+                </NuxtLink>
                 <div class="text-3xl tracking-widest font-semibold font-Comfortaa">{{ cart.products.price.toLocaleString() }} ₽</div>
             </div>
         </div>
