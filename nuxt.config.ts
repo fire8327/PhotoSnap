@@ -5,13 +5,19 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
     "nuxt-icon",
-    "@formkit/nuxt"
+    "@formkit/nuxt",
+    "@pinia/nuxt",
+    "@nuxtjs/supabase",
+    "nuxt-swiper"
   ],
   googleFonts: {
     families: {
       'Inter': true,
       'Comfortaa': true
     }
+  },
+  supabase: {
+    redirect: false
   },
   postcss: {
     plugins: {

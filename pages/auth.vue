@@ -1,5 +1,5 @@
 <template>
-    <FormKit @submit="authUser" type="form" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 items-center justify-center grow text-xl p-4 rounded-xl border border-white/15 bg-white/5 backdrop-blur-3xl">
+    <FormKit @submit="authUser" type="form" :actions="false" messages-class="hidden" form-class="flex flex-col gap-4 items-center justify-center grow text-xl p-4 rounded-xl border border-white/15 bg-white/5 backdrop-blur-3xl text-[#1B1B1B]">
         <p class="text-3xl font-semibold font-Comfortaa tracking-widest text-white">Вход</p>
         <div class="flex items-center lg:items-start gap-4 max-lg:flex-col md:w-2/3 lg:w-1/2">
             <FormKit v-model="user.login" type="text" validation="required" messages-class="text-[#E9556D] font-semibold font-Comfortaa tracking-widest" name="Логин" outer-class="w-full lg:w-1/2" input-class="px-4 py-2 rounded-xl focus:outline-none w-full" placeholder="Логин"/>
@@ -21,4 +21,37 @@
         login: "",
         password: ""  
     })
+
+
+    /* создание сообщений и подключение хранилищ */
+    const { showMessage } = useMessagesStore()
+    const { login } = useUserStore()
+
+
+    /* подключение БД и роутера */
+    const supabase = useSupabaseClient()
+    const router = useRouter()
+
+
+    /* вход */
+    const authUser = async() => {  
+        const { data: users, error } = await supabase
+        .from('users')
+        .select("*")
+        .eq('login', user.value.login)
+    
+        if (!users[0]) {
+            user.value.login = ""
+            return showMessage("Неверно введен логин!", false)              
+        }
+
+        if (user.value.password !== users[0].password) {
+            user.value.password = ""
+            return showMessage('Неверно введен пароль!', false)            
+        }
+
+        showMessage('Успешный вход!', true)
+        login(users[0].id, users[0].role)
+        router.push('/profile')
+    } 
 </script>
