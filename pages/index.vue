@@ -64,9 +64,6 @@
             <NuxtLink class="text-4xl font-Comfortaa" to="tel:+7 (995) 786 91-23">+7 (995) 786 91-23</NuxtLink>
         </div>
     </div>
-    <div class="flex flex-col gap-6">
-        <p class="text-3xl tracking-widest font-semibold font-Comfortaa">Отзывы</p>
-    </div>
 </template>
 
 <script setup>
