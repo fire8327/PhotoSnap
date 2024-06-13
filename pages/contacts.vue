@@ -33,7 +33,7 @@
                     </NuxtLink>
                 </div>
             </div>
-            <iframe class="w-full h-[400px] lg:w-2/3 lg:h-full rounded-xl border border-gray-200" src="https://yandex.ru/map-widget/v1/?um=constructor%3A01b5d493b8a272d4d278e0cbf38cd49c07fe929bbf2fe0b4f6cbacb690afca8d&amp;source=constructor" frameborder="0"></iframe>
+            <iframe class="w-full h-[400px] lg:w-2/3 lg:h-full rounded-xl border border-gray-200" src="https://yandex.ru/map-widget/v1/?um=constructor%3A2dc702628277cfe28bb9b157c1d3fdaa47c3df97f80427eb48efdde2ac9d32b2&amp;source=constructor" frameborder="0"></iframe>
         </div>
         <div class="w-full h-px bg-gray-400"></div>
     </div>
