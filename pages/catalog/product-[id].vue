@@ -6,7 +6,7 @@
             <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-2 w-full" v-for="(value, key) in products[0].characteristics">
                     <p class="w-fit">{{ key }}</p>
-                    <div class="grow h-px border-b border-white border-dashed min-w-[30%]"></div>
+                    <div class="grow h-px border-b border-white border-dashed min-w-[50%]"></div>
                     <p class="w-fit">{{ value }}</p>
                 </div>
             </div>
