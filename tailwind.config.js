@@ -1,7 +1,8 @@
 export default { 
     theme: {
         fontFamily: {
-            'Inter': 'Inter'
+            'Inter': 'Inter',
+            'Comfortaa': 'Comfortaa'
         }
     }
 }
