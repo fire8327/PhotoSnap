@@ -18,7 +18,7 @@
                 </div>
             </div> 
             <div class="w-full h-px bg-white"></div>
-            <p class="text-center font-Comfortaa">© 2023 PhotoSnap™. All Rights Reserved.</p>
+            <p class="text-center font-Comfortaa">© 2024 PhotoSnap™. All Rights Reserved.</p>
         </div>
     </footer>
 </template>
