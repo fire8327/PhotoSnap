@@ -5,6 +5,7 @@
             <div class="flex flex-col gap-8">
                 <div class="flex flex-col gap-4 rounded-xl p-4 border border-white/15 bg-white/5 backdrop-blur-3xl" v-for="cart in carts">
                     <p class="text-2xl tracking-widest font-semibold font-Comfortaa">{{ cart.products.title }}</p>
+                    <img src="/images/products/1.jpg" alt="" class="w-full rounded-xl">
                     <div class="text-4xl tracking-widest font-semibold font-Comfortaa">{{ cart.products.price.toLocaleString() }} ₽</div>
                     <div class="flex items-center gap-2 md:w-1/2">
                         <div class="flex items-center justify-center gap-4 h-full px-4 rounded-xl border white w-1/2">
@@ -30,7 +31,7 @@
             </FormKit>
         </div>
     </div>
-    <div class="flex flex-col gap-6 p-4 rounded-xl bg-white/5 border border-white/15 backdrop-blur-3xl w-full h-fit self-center text-center items-center">
+    <div v-else class="flex flex-col gap-6 p-4 rounded-xl bg-white/5 border border-white/15 backdrop-blur-3xl w-full h-fit self-center text-center items-center">
         <p class="text-3xl tracking-widest font-semibold font-Comfortaa">Ваша корзина пуста</p>
         <p class="tracking-widest max-w-xl">Кажется, вы еще не добавили товары в корзину. Не упустите шанс найти что-то особенное!</p>
         <NuxtLink to="/catalog" class="w-[160px] text-center py-0.5 px-4 rounded-full bg-white text-[#1B1B1B] border border-white transition-all duration-500 hover:text-white hover:bg-transparent">В каталог</NuxtLink>

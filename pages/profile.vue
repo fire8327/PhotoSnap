@@ -13,6 +13,17 @@
         <FormKit type="text" v-model="user.phone" validation="required|length:11" messages-class="text-[#E9556D] font-semibold font-Comfortaa tracking-widest" name="Телефон" outer-class="w-full lg:w-1/2" input-class="px-4 py-2 rounded-xl focus:outline-none w-full" placeholder="Телефон"/>
         <button type="submit" class="w-[160px] text-center py-0.5 px-4 rounded-full bg-white text-[#1B1B1B] border border-white transition-all duration-500 hover:text-white hover:bg-transparent">Обновить</button>
     </FormKit>
+    <div class="flex flex-col gap-6" v-if="carts">
+        <p class="text-3xl font-semibold font-Comfortaa tracking-widest text-white">Мои покупки</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div class="flex flex-col gap-4 rounded-xl p-4 border border-white/15 bg-white/5 backdrop-blur-3xl" v-for="cart in carts">
+                <p>Id заказа: {{ cart.id }}</p>
+                <p class="tracking-widest font-semibold font-Comfortaa">{{ cart.products.title }}</p>
+                <img src="/images/products/1.jpg" alt="" class="w-full rounded-xl">
+                <div class="text-3xl tracking-widest font-semibold font-Comfortaa">{{ cart.products.price.toLocaleString() }} ₽</div>
+            </div>
+        </div>
+    </div>
     <div class="flex flex-col gap-6">
         <p class="text-3xl font-semibold font-Comfortaa tracking-widest text-white">Выход из аккаунта</p>
         <button @click="logoutUser" class="w-[160px] text-center py-0.5 px-4 rounded-full bg-white text-[#1B1B1B] border border-white transition-all duration-500 hover:text-white hover:bg-transparent">Выход</button>
@@ -61,6 +72,14 @@
             showMessage("Данные обновлены!", true)   
         }
     }
+
+
+    /* заказы */
+    const { data:carts, error:cartsError } = await supabase
+    .from('cart')
+    .select('*, products(*)')   
+    .eq('userId', id.value)  
+    .eq('status', 'Оформлен')  
 
 
     /* выход из аккаунта */
