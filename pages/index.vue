@@ -42,13 +42,15 @@
     <div class="flex flex-col gap-6">
         <p class="text-3xl tracking-widest font-semibold font-Comfortaa">Наши новинки</p>
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            <div class="flex flex-col gap-6 bg-white/5 rounded-xl p-4 border border-white/15 backdrop-blur-3xl group" v-for="n in 4">
+            <div class="flex flex-col gap-6 bg-white/5 rounded-xl p-4 border border-white/15 backdrop-blur-3xl group" v-for="product in products">
                 <div class="overflow-hidden rounded-xl">                    
                     <img src="/images/products/1.jpg" alt="" class="transition-all duration-500 group-hover:scale-125">
                 </div>
-                <p class="text-2xl font-Comfortaa">Фотоаппарат беззеркальный Canon EOS R10 Kit RF-S 18–150 мм F3.5–6.3 IS STM</p>
-                <p class="text-3xl font-Comfortaa">1 599 ₽</p>
-                <NuxtLink class="mx-auto flex flex-col w-fit after:w-0 after:bg-white after:h-px after:transition-all after:duration-500 group-hover:after:w-full">Подробнее...</NuxtLink>
+                <p class="text-2xl font-Comfortaa">{{ product.title }}</p>
+                <div class="flex flex-col gap-2 mt-auto">
+                    <p class="text-3xl font-Comfortaa">{{ product.price.toLocaleString() }} ₽</p>
+                    <NuxtLink :to="`/catalog/product-${product.id}`" class="mx-auto flex flex-col w-fit after:w-0 after:bg-white after:h-px after:transition-all after:duration-500 group-hover:after:w-full">Подробнее...</NuxtLink>
+                </div>
             </div>
         </div>
     </div>
@@ -68,5 +70,12 @@
 </template>
 
 <script setup>
+    /* подключение БД */
+    const supabase = useSupabaseClient() 
 
+    const { data, error } = await supabase
+    .from('products')
+    .select('*')
+
+    const products = ref(data.slice(0,4))
 </script>
